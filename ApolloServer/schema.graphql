@@ -1,0 +1,32 @@
+type Query {
+  listeCommandes: [Commande],
+  getCommande: Commande
+}
+
+type Mutation {
+  newCommande: Commande,
+  newPaiement: Paiement
+}
+
+type Produit{
+  id: ID,
+  titre: String,
+  description: String,
+  image: String,
+  prix: Int
+}
+
+type Commande{
+  id: ID,
+  produit: Produit,
+  date: String,
+  quantite: Int,
+  commandePayee: Boolean
+}
+
+type Paiement{
+  id: ID,
+  commande: Commande,
+  montant: Int,
+  numeroCarte: Int
+}
