@@ -3,9 +3,9 @@ type Query {
   getCommande: Commande
 }
 
-type Mutation {
-  newCommande: Commande,
-  newPaiement: Paiement
+type Mutation($commande: Commande, $paiement: Paiement) {
+  createCommande(commande: $commande): Commande,
+  createPaiement(paiement: $paiement): Paiement
 }
 
 type Produit{

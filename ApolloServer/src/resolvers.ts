@@ -1,30 +1,30 @@
 export const resolvers = {
     Query: {
-        listeCommandes: async(_, __, {dataSources}) => {
-            return dataSources.commandeAPI.getCommandes();
+        listeCommandes: async(_, __, { dataSources }) => {
+            return dataSources.commandeAPI.getObjects();
         },
-        getCommande: async(_, { id }, {dataSources}) => {
-            return dataSources.commandeAPI.getCommandeById(id);
+        getCommande: async(_, { id }, { dataSources }) => {
+            return dataSources.commandeAPI.getObjectById(id);
         },
     },
     Mutation: {
-      payerCommande: async(_, { paiement }, {dataSources}) => {
-        return dataSources.paiementAPI.payerCommande(paiement);
+      createPaiement: async(_, { paiement }, { dataSources }) => {
+        return dataSources.paiementAPI.create(paiement);
       },
-      faireCommande: async(_, { commande }, {dataSources}) => {
-        return dataSources.commandeAPI.faireCommande(commande);
+      createCommande: async(_, { commande }, { dataSources }) => {
+        return dataSources.commandeAPI.create(commande);
       }
     },
     Commande: {
         produit: async(parent, args, { dataSources }) => {
             const productId = parent.productId;
-            return dataSources.produitAPI.getProductById(productId);
+            return dataSources.produitAPI.getObjectById(productId);
         }
     },
     Paiement: {
         commande: async(parent, args, { dataSources }) => {
           const commandeId = parent.commandeId;
-          return dataSources.commandeAPI.getCommandeById(commandeId);
+          return dataSources.commandeAPI.getObjectById(commandeId);
         }
     }
 };
