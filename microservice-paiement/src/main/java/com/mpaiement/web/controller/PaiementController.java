@@ -15,7 +15,7 @@ public class PaiementController {
     @Autowired
     PaiementDao paiementDao;
 
-    @PostMapping(value = "/paiement")
+    @PostMapping(value = "/")
     public ResponseEntity<Paiement>  payerUneCommande(@RequestBody Paiement paiement){
 
 
@@ -28,7 +28,6 @@ public class PaiementController {
 
 
         if(nouveauPaiement == null) throw new PaiementImpossibleException("Erreur, impossible d'établir le paiement, réessayez plus tard");
-
 
 
         //TODO Nous allons appeler le Microservice Commandes ici pour lui signifier que le paiement est accepté

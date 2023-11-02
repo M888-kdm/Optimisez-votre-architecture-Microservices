@@ -18,7 +18,7 @@ public class CommandeController {
     @Autowired
     CommandesDao commandesDao;
 
-    @PostMapping (value = "/commandes")
+    @PostMapping (value = "/")
     public ResponseEntity<Commande> ajouterCommande(@RequestBody Commande commande){
 
         Commande nouvelleCommande = commandesDao.save(commande);
@@ -28,7 +28,7 @@ public class CommandeController {
         return new ResponseEntity<Commande>(commande, HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/commandes/{id}")
+    @GetMapping(value = "/{id}")
     public Optional<Commande> recupererUneCommande(@PathVariable int id){
 
         Optional<Commande> commande = commandesDao.findById(id);

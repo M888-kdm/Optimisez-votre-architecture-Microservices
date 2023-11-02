@@ -23,7 +23,7 @@ public class ProductController {
 
     // Affiche la liste de tous les produits disponibles
 
-    @GetMapping(value = "/Produits")
+    @GetMapping(value = "/")
     public List<Product> listeDesProduits()
     {
         System.out.println("Less go");
@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     //Récuperer un produit par son id
-    @GetMapping( value = "/Produits/{id}")
+    @GetMapping( value = "/{id}")
     public Optional<Product> recupererUnProduit(@PathVariable int id) {
 
         Optional<Product> product = productDao.findById(id);

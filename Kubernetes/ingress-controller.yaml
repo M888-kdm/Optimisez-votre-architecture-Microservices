@@ -17,3 +17,17 @@ spec:
             name: produits-service
             port:
               number: 9001
+      - path: /commandes
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: commandes-service
+            port:
+              number: 9002
+      - path: /paiement
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: paiement-service
+            port:
+              number: 9003
