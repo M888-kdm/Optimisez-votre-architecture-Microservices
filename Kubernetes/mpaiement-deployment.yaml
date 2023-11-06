@@ -14,6 +14,15 @@ spec:
       labels:
         app: microservice-paiement
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: special
+                operator: In
+                values:
+                - "true"
       containers:
       - name: microservice-paiement
         image: pamoussa/mpaiement:latest
