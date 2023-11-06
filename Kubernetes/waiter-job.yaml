@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: waiter-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: waiter-container
+        image: busybox
+        command: ["sh", "-c", "until kubectl get deployment/config-server-deployment -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 10; done"]
+      restartPolicy: OnFailure

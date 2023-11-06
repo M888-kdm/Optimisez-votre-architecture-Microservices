@@ -28,7 +28,9 @@ spec:
         image: pamoussa/config-server:latest
         ports:
         - containerPort: 9101
-    
-
-
-
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 9101
+          initialDelaySeconds: 20
+          periodSeconds: 10
