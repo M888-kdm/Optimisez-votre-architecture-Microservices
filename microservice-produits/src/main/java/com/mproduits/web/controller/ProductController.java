@@ -31,7 +31,6 @@ public class ProductController {
         if(products.isEmpty()) throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
 
         List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
-        System.out.println(listeLimitee.get(0));
 
         return listeLimitee;
     }
