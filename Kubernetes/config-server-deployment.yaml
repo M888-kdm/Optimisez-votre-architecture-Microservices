@@ -14,15 +14,6 @@ spec:
       labels:
         app: config-server
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: special
-                operator: In
-                values:
-                - "true"
       containers:
       - name: config-server
         image: pamoussa/config-server:latest
