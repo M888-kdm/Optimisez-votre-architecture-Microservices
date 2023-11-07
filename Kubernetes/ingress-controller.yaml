@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: kong
   rules:
-  - host: 10.100.238.11
+  - host: internship.com
     http:
       paths:
       - path: /produits
