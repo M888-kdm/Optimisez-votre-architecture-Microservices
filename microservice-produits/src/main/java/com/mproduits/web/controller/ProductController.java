@@ -26,12 +26,12 @@ public class ProductController {
     @GetMapping(value = "/")
     public List<Product> listeDesProduits()
     {
-        System.out.println("Less go");
         List<Product> products = productDao.findAll();
 
         if(products.isEmpty()) throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
 
         List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
+        System.out.println(listeLimitee.get(0));
 
         return listeLimitee;
     }
