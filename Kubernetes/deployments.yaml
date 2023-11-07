@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -33,7 +34,7 @@ spec:
     kind: Job
     name: waiter-job
 
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -69,7 +70,7 @@ spec:
     kind: Job
     name: waiter-job
 
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
