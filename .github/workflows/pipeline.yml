@@ -33,6 +33,7 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/config-server:latest
   deploy:
     runs-on: self-hosted
+    needs: build
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
