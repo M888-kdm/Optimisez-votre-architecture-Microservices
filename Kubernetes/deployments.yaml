@@ -15,24 +15,18 @@ spec:
       labels:
         app: microservice-commandes
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: special
-                operator: In
-                values:
-                - "true"
       containers:
       - name: microservice-commandes
         image: pamoussa/mcommandes:latest
         ports:
         - containerPort: 9002
-  dependsOn:
-  - apiGroup: batch
-    kind: Job
-    name: waiter-job
+      initContainers:
+      - name: wait-for-deployment
+        image: busybox
+        command:
+          - sh
+          - -c
+          - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 20; done
 
 ---
 apiVersion: apps/v1
@@ -51,24 +45,18 @@ spec:
       labels:
         app: microservice-paiement
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: special
-                operator: In
-                values:
-                - "true"
       containers:
       - name: microservice-paiement
         image: pamoussa/mpaiement:latest
         ports:
         - containerPort: 9003
-  dependsOn:
-  - apiGroup: batch
-    kind: Job
-    name: waiter-job
+      initContainers:
+      - name: wait-for-deployment
+        image: busybox
+        command:
+          - sh
+          - -c
+          - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 20; done
 
 ---
 apiVersion: apps/v1
@@ -87,21 +75,15 @@ spec:
       labels:
         app: microservice-produits
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: special
-                operator: In
-                values:
-                - "true"
       containers:
       - name: microservice-produits
         image: pamoussa/mproduits:latest
         ports:
         - containerPort: 9001
-  dependsOn:
-  - apiGroup: batch
-    kind: Job
-    name: waiter-job
+      initContainers:
+      - name: wait-for-deployment
+        image: busybox
+        command:
+          - sh
+          - -c
+          - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 20; done
