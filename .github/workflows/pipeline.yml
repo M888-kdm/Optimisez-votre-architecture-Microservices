@@ -31,13 +31,13 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/mcommandes:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/mpaiement:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/config-server:latest
-  # deploy:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - name: Checkout code
-  #     uses: actions/checkout@v2
+  deploy:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
       
-  #   - name: Deploy to K8s
-  #     run: |
-  #       chmod +x ./apply.sh
-  #       ./apply.sh
+    - name: Deploy to K8s
+      run: |
+        chmod +x ./apply.sh
+        ./apply.sh

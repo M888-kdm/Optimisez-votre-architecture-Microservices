@@ -20,13 +20,13 @@ spec:
         image: pamoussa/mcommandes:latest
         ports:
         - containerPort: 9002
-      initContainers:
-      - name: wait-for-deployment
-        image: busybox
-        command:
-          - sh
-          - -c
-          - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 20; done
+      # initContainers:
+      # - name: wait-for-deployment
+      #   image: busybox
+      #   command:
+      #     - sh
+      #     - -c
+      #     - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 5; done
 
 ---
 apiVersion: apps/v1
@@ -50,13 +50,13 @@ spec:
         image: pamoussa/mpaiement:latest
         ports:
         - containerPort: 9003
-      initContainers:
-      - name: wait-for-deployment
-        image: busybox
-        command:
-          - sh
-          - -c
-          - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 20; done
+      # initContainers:
+      # - name: wait-for-deployment
+      #   image: busybox
+      #   command:
+      #     - sh
+      #     - -c
+      #     - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 20; done
 
 ---
 apiVersion: apps/v1
@@ -80,10 +80,10 @@ spec:
         image: pamoussa/mproduits:latest
         ports:
         - containerPort: 9001
-      initContainers:
-      - name: wait-for-deployment
-        image: busybox
-        command:
-          - sh
-          - -c
-          - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 20; done
+      # initContainers:
+      # - name: wait-for-deployment
+      #   image: busybox
+      #   command:
+      #     - sh
+      #     - -c
+      #     - until kubectl get deployment $(kubectl get configmap/wait-for-deployment-config -o=jsonpath='{.data.deploymentName}') -o jsonpath='{.status.readyReplicas}' | grep -q 1; do sleep 20; done
