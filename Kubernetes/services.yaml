@@ -7,7 +7,7 @@ spec:
   selector:
     app: microservice-produits
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 9001
     nodePort: 30001
     targetPort: 9001
@@ -22,7 +22,7 @@ spec:
   selector:
     app: microservice-commandes
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 9002
     nodePort: 30002
     targetPort: 9002
@@ -37,7 +37,7 @@ spec:
   selector:
     app: microservice-paiement
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 9003
     nodePort: 30003
     targetPort: 9003
@@ -52,7 +52,7 @@ spec:
   selector:
     app: apollo-server
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 4000
     nodePort: 30004
     targetPort: 4000
