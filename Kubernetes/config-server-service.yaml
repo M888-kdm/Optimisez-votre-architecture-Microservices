@@ -7,7 +7,7 @@ spec:
     app: config-server
   ports:
     - protocol: TCP
-    - nodePort: 30101
+      nodePort: 30101
       port: 9101
       targetPort: 9101
   type: NodePort

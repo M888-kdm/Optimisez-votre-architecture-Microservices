@@ -9,7 +9,7 @@ cd Kubernetes
 kubectl apply -f config-server-deployment.yaml
 kubectl apply -f config-server-service.yaml
 
-sleep 30
+sleep 15
 
 kubectl apply -f services.yaml
 kubectl apply -f deployments.yaml
