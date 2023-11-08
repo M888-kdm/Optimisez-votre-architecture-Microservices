@@ -8,8 +8,8 @@ spec:
     app: microservice-produits
   ports:
     protocol: TCP
-    nodePort: 30001
     port: 9001
+    nodePort: 30001
     targetPort: 9001
   type: NodePort
 
@@ -23,8 +23,8 @@ spec:
     app: microservice-commandes
   ports:
     protocol: TCP
-    nodePort: 30002
     port: 9002
+    nodePort: 30002
     targetPort: 9002
   type: NodePort
 
@@ -38,8 +38,8 @@ spec:
     app: microservice-paiement
   ports:
     protocol: TCP
-    nodePort: 30003
     port: 9003
+    nodePort: 30003
     targetPort: 9003
   type: NodePort
 
@@ -53,7 +53,7 @@ spec:
     app: apollo-server
   ports:
     protocol: TCP
-    nodePort: 30004
     port: 4000
+    nodePort: 30004
     targetPort: 4000
   type: NodePort
