@@ -24,6 +24,7 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/mproduits:latest microservice-produits/
           docker build -t ${{ secrets.DOCKER_USERNAME }}/mcommandes:latest microservice-commandes/
           docker build -t ${{ secrets.DOCKER_USERNAME }}/config-server:latest config-server/
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/apollo-server:latest ApolloServer/
 
       - name: Push Docker image
         run: |
@@ -31,6 +32,7 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/mcommandes:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/mpaiement:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/config-server:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/apollo-server:latest
   deploy:
     runs-on: self-hosted
     needs: build

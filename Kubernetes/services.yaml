@@ -42,3 +42,17 @@ spec:
       port: 9003
       targetPort: 9003
   type: NodePort
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apollo-server-service
+spec:
+  selector:
+    app: apollo-server
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+  type: NodePort

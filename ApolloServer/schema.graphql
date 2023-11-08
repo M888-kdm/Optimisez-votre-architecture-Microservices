@@ -1,6 +1,8 @@
 type Query {
   listeCommandes: [Commande],
-  getCommande: Commande
+  getCommande: Commande,
+  greeting: String
+
 }
 
 type Mutation {

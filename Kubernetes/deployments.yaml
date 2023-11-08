@@ -66,3 +66,26 @@ spec:
         image: pamoussa/mproduits:latest
         ports:
         - containerPort: 9001
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apollo-server
+  labels:
+    app: apollo-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apollo-server
+  template:
+    metadata:
+      labels:
+        app: apollo-server
+    spec:
+      containers:
+      - name: apollo-server
+        image: pamoussa/apollo-server:latest
+        ports:
+        - containerPort: 4000
