@@ -9,10 +9,7 @@ cd Kubernetes
 kubectl apply -f config-server-deployment.yaml
 kubectl apply -f config-server-service.yaml
 
-sleep 10
+sleep 30
 
-kubectl apply -f deployments.yaml
 kubectl apply -f services.yaml
-
-kubectl apply -f ingress-controller.yaml
-
+kubectl apply -f deployments.yaml
