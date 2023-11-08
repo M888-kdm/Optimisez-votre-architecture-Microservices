@@ -3,12 +3,35 @@ type Query {
   getCommande: Commande
 }
 
-type Mutation($commande: Commande, $paiement: Paiement) {
-  createCommande(commande: $commande): Commande,
-  createPaiement(paiement: $paiement): Paiement
+type Mutation {
+  createCommande(commande: CommandeInput): Commande,
+  createPaiement(paiement: PaiementInput): Paiement
 }
 
 type Produit{
+  id: ID,
+  titre: String,
+  description: String,
+  image: String,
+  prix: Int
+}
+
+input CommandeInput {
+  id: ID,
+  produit: ProduitInput,
+  date: String,
+  quantite: Int,
+  commandePayee: Boolean
+}
+
+input PaiementInput {
+  id: ID,
+  commande: CommandeInput,
+  montant: Int,
+  numeroCarte: Int
+}
+
+input ProduitInput {
   id: ID,
   titre: String,
   description: String,

@@ -1,16 +1,19 @@
-import { RESTDataSource } from '@apollo/datasource-rest';
-export class CommandeDataSource extends RESTDataSource {
+import { BaseDataSource } from './base.js';
+// export class CommandeDataSource extends RESTDataSource {
+//     override baseURL = `${process.env.URL}/commande/`;
+//     async getCommandes(): Promise<any> {
+//         return this.get('');
+//     }
+//     async getCommandeById(id: number): Promise<any> {
+//         return this.get(`${id}`);
+//     }
+//     async nouvelleCommande(commande: Commande): Promise<any> {
+//         return this.post('', { body: commande });
+//     }
+// }
+export class CommandeDataSource extends BaseDataSource {
     constructor() {
-        super(...arguments);
-        this.baseURL = "";
-    }
-    async getCommandes() {
-        return this.get('');
-    }
-    async getCommandeById(id) {
-        return this.get(`${id}`);
-    }
-    async createCommande(commande) {
-        return this.post('');
+        super();
+        this.endpoint = "commande";
     }
 }
