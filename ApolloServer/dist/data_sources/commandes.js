@@ -1,4 +1,4 @@
-import { BaseDataSource } from './base';
+import { BaseDataSource } from './base.js';
 // export class CommandeDataSource extends RESTDataSource {
 //     override baseURL = `${process.env.URL}/commande/`;
 //     async getCommandes(): Promise<any> {
