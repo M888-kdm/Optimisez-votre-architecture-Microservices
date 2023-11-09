@@ -1,10 +1,10 @@
 export const resolvers = {
     Query: {
       listeCommandes: async(_, __, { dataSources }) => {
-          return dataSources.commandeAPI.getObjects();
+          return dataSources.commandesAPI.getObjects();
       },
       getCommande: async(_, { id }, { dataSources }) => {
-          return dataSources.commandeAPI.getObjectById(id);
+          return dataSources.commandesAPI.getObjectById(id);
       },
       produits: async(_, { id }, { dataSources }) => {
           return dataSources.produitsAPI.getObjects()
@@ -30,7 +30,7 @@ export const resolvers = {
     Paiement: {
       commande: async(parent, args, { dataSources }) => {
         const commandeId = parent.commandeId;
-        return dataSources.commandeAPI.getObjectById(commandeId);
+        return dataSources.commandesAPI.getObjectById(commandeId);
       }
     }
 };
