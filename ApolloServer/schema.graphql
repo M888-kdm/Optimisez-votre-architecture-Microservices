@@ -1,6 +1,8 @@
 type Query {
   listeCommandes: [Commande],
   getCommande: Commande,
+  produits: [Produit],
+  produitById(id:Int): Produit,
   greeting: String
 
 }

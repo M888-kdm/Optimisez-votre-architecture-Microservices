@@ -6,8 +6,11 @@ export const resolvers = {
         getCommande: async (_, { id }, { dataSources }) => {
             return dataSources.commandeAPI.getObjectById(id);
         },
-        greeting: async (_, { id }, { dataSources }) => {
-            return 'Hello Fama';
+        produits: async (_, { id }, { dataSources }) => {
+            return dataSources.produitsAPI.getProduits();
+        },
+        produitById: async (_, { id }, { dataSources }) => {
+            return dataSources.produitsAPI.getProduitById(id);
         },
     },
     Mutation: {
@@ -18,12 +21,12 @@ export const resolvers = {
             return dataSources.commandesAPI.create(commande);
         }
     },
-    // Commande: {
-    //     product: async(parent, args, { dataSources }) => {
-    //         const productId = parent.productId;
-    //         return dataSources.produitAPI.getObjectById(productId);
-    //     }
-    // },
+    Commande: {
+        product: async(parent, args, { dataSources }) => {
+            const productId = parent.productId;
+            return dataSources.produitAPI.getObjectById(productId);
+        }
+    },
     Paiement: {
         commande: async (parent, args, { dataSources }) => {
             const commandeId = parent.commandeId;

@@ -4,6 +4,7 @@ import { readFileSync } from 'fs';
 import { resolvers } from './resolvers.js';
 import { CommandeDataSource } from './data_sources/commandes.js';
 import { PaiementDataSource } from './data_sources/paiement.js';
+import { ProduitsDataSource } from './data_sources/produits.js';
 // we must convert the file Buffer to a UTF-8 string
 const typeDefs = readFileSync('schema.graphql', 'utf8');
 const server = new ApolloServer({
@@ -16,7 +17,8 @@ const { url } = await startStandaloneServer(server, {
         return {
             dataSources: {
                 commandesAPI: new CommandeDataSource(),
-                paiementAPI: new PaiementDataSource()
+                paiementAPI: new PaiementDataSource(),
+                produitsAPI: new ProduitsDataSource
             },
         };
     }
