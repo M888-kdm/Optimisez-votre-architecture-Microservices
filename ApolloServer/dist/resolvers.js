@@ -6,6 +6,15 @@ export const resolvers = {
         getCommande: async (_, { id }, { dataSources }) => {
             return dataSources.commandeAPI.getObjectById(id);
         },
+        greeting: async (_, { id }, { dataSources }) => {
+            return 'Hello Fama';
+        },
+        produits: async (_, { id }, { dataSources }) => {
+            return dataSources.produitsAPI.getProduits();
+        },
+        produitById: async (_, { id }, { dataSources }) => {
+            return dataSources.produitsAPI.getProduitById(id);
+        },
     },
     Mutation: {
         createPaiement: async (_, { paiement }, { dataSources }) => {

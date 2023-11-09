@@ -4,6 +4,7 @@ import { readFileSync } from 'fs';
 import { resolvers } from './resolvers.js';
 import { CommandeDataSource } from './data_sources/commandes.js';
 import { PaiementDataSource } from './data_sources/paiement.js';
+import { ProduitsDataSource } from './data_sources/produits.js';
 
 interface ContextValue {
   dataSources: {
@@ -25,7 +26,8 @@ const { url } = await startStandaloneServer(server, {
     return {
       dataSources: {
         commandesAPI: new CommandeDataSource(),
-        paiementAPI: new PaiementDataSource()
+        paiementAPI: new PaiementDataSource(),
+        produitsAPI: new ProduitsDataSource
       },
     };
 
