@@ -1,19 +1,16 @@
 export const resolvers = {
     Query: {
-        listeCommandes: async(_, __, { dataSources }) => {
-            return dataSources.commandeAPI.getObjects();
-        },
-        getCommande: async(_, { id }, { dataSources }) => {
-            return dataSources.commandeAPI.getObjectById(id);
-        },
-        greeting: async(_, { id }, { dataSources }) => {
-          return 'Hello Fama'
+      listeCommandes: async(_, __, { dataSources }) => {
+          return dataSources.commandeAPI.getObjects();
       },
-        produits: async(_, { id }, { dataSources }) => {
-        return dataSources.produitsAPI.getProduits()
+      getCommande: async(_, { id }, { dataSources }) => {
+          return dataSources.commandeAPI.getObjectById(id);
       },
-        produitById:async(_, { id }, { dataSources }) =>{
-        return dataSources.produitsAPI.getProduitById(id)
+      produits: async(_, { id }, { dataSources }) => {
+          return dataSources.produitsAPI.getProduits()
+      },
+      produitById: async(_, { id }, { dataSources }) =>{
+          return dataSources.produitsAPI.getProduitById(id)
       },
     },
     Mutation: {
@@ -21,19 +18,19 @@ export const resolvers = {
         return dataSources.paiementAPI.create(paiement);
       },
       createCommande: async(_, { commande }, { dataSources }) => {
-        return dataSources.commandeAPI.create(commande);
+        return dataSources.commandesAPI.create(commande);
       }
     },
     Commande: {
-        produit: async(parent, args, { dataSources }) => {
-            const productId = parent.productId;
-            return dataSources.produitAPI.getObjectById(productId);
-        }
+      product: async(parent, args, { dataSources }) => {
+          const productId = parent.productId;
+          return dataSources.produitAPI.getObjectById(productId);
+      }
     },
     Paiement: {
-        commande: async(parent, args, { dataSources }) => {
-          const commandeId = parent.commandeId;
-          return dataSources.commandeAPI.getObjectById(commandeId);
-        }
+      commande: async(parent, args, { dataSources }) => {
+        const commandeId = parent.commandeId;
+        return dataSources.commandeAPI.getObjectById(commandeId);
+      }
     }
 };

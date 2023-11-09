@@ -20,6 +20,7 @@ public class CommandeController {
 
     @PostMapping (value = "/")
     public ResponseEntity<Commande> ajouterCommande(@RequestBody Commande commande){
+        System.out.println(commande);
 
         Commande nouvelleCommande = commandesDao.save(commande);
 

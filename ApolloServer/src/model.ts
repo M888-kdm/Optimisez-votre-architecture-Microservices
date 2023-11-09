@@ -16,7 +16,7 @@ export class Produit {
 
 export class Paiement {
     id: number;
-    commandeId: number;
+    idCommande: number;
     montant: number;
     numeroCarte: number;
 }

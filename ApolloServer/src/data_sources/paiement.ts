@@ -4,8 +4,7 @@ import { BaseDataSource } from './base.js';
 export class PaiementDataSource extends BaseDataSource<Paiement> {
 
     constructor(){
-        super();
-        this.endpoint = "paiement";
+        super("30003");
     }
 
 }

@@ -22,15 +22,15 @@ type Produit{
 
 input CommandeInput {
   id: ID,
-  produit: ProduitInput,
-  date: String,
+  productId: Int,
+  dateCommande: String,
   quantite: Int,
   commandePayee: Boolean
 }
 
 input PaiementInput {
   id: ID,
-  commande: CommandeInput,
+  commandeId: Int,
   montant: Int,
   numeroCarte: Int
 }
@@ -45,8 +45,8 @@ input ProduitInput {
 
 type Commande{
   id: ID,
-  produit: Produit,
-  date: String,
+  productId: Int,
+  dateCommande: String,
   quantite: Int,
   commandePayee: Boolean
 }

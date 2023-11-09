@@ -12,6 +12,7 @@ const server = new ApolloServer({
     resolvers
 });
 const { url } = await startStandaloneServer(server, {
+    listen: { port: 4001 },
     context: async () => {
         return {
             dataSources: {

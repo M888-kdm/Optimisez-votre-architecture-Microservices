@@ -1,22 +1,22 @@
 package com.mpaiement.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "paiement")
 public class Paiement {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(unique = true)
+    @Column(name = "id_commande", unique = true)
     private Integer idCommande;
 
+    @Column(name = "montant")
     private Integer montant;
 
+    @Column(name = "numero_carte")
     private Long numeroCarte;
 
     public Paiement() {

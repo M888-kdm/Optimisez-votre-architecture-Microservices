@@ -6,9 +6,6 @@ export const resolvers = {
         getCommande: async (_, { id }, { dataSources }) => {
             return dataSources.commandeAPI.getObjectById(id);
         },
-        greeting: async (_, { id }, { dataSources }) => {
-            return 'Hello Fama';
-        },
         produits: async (_, { id }, { dataSources }) => {
             return dataSources.produitsAPI.getProduits();
         },
@@ -21,11 +18,11 @@ export const resolvers = {
             return dataSources.paiementAPI.create(paiement);
         },
         createCommande: async (_, { commande }, { dataSources }) => {
-            return dataSources.commandeAPI.create(commande);
+            return dataSources.commandesAPI.create(commande);
         }
     },
     Commande: {
-        produit: async (parent, args, { dataSources }) => {
+        product: async(parent, args, { dataSources }) => {
             const productId = parent.productId;
             return dataSources.produitAPI.getObjectById(productId);
         }
