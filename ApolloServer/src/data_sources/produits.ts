@@ -1,17 +1,11 @@
-import { RESTDataSource } from '@apollo/datasource-rest';
-import { Produit } from '../model';
+import { Produit } from '../model.js';
+import { BaseDataSource } from './base.js';
 
-class ProduitsDataSource extends RESTDataSource {
-  override baseURL = 'http://10.100.238.11:30001';
+export class ProduitsDataSource extends BaseDataSource<Produit> {
 
-  async getProduits(): Promise<Produit> {
-    return this.get<Produit>(`/`);
-  }
-
-  async getProduitById(id: string): Promise<Produit> {
-    return this.get<Produit>(`/${encodeURIComponent(id)}`);
+  constructor(){
+      const port = 30001;
+      super(`${port}`);
   }
 
 }
-
-export {ProduitsDataSource}

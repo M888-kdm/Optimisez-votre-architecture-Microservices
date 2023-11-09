@@ -2,9 +2,7 @@ type Query {
   listeCommandes: [Commande],
   getCommande: Commande,
   produits: [Produit],
-  produitById(id:Int): Produit,
-  greeting: String
-
+  produitById(id: Int): Produit,
 }
 
 type Mutation {
@@ -20,21 +18,6 @@ type Produit{
   prix: Int
 }
 
-input CommandeInput {
-  id: ID,
-  productId: Int,
-  dateCommande: String,
-  quantite: Int,
-  commandePayee: Boolean
-}
-
-input PaiementInput {
-  id: ID,
-  commandeId: Int,
-  montant: Int,
-  numeroCarte: Int
-}
-
 input ProduitInput {
   id: ID,
   titre: String,
@@ -45,10 +28,25 @@ input ProduitInput {
 
 type Commande{
   id: ID,
+  product: Produit,
+  dateCommande: String,
+  quantite: Int,
+  commandePayee: Boolean
+}
+
+input CommandeInput {
+  id: ID,
   productId: Int,
   dateCommande: String,
   quantite: Int,
   commandePayee: Boolean
+}
+
+input PaiementInput {
+  id: ID,
+  idCommande: Int,
+  montant: Int,
+  numeroCarte: Int
 }
 
 type Paiement{
