@@ -10,13 +10,13 @@ public class Paiement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "idCommande", unique = true)
+    @Column(name = "id_commande", unique = true)
     private Integer idCommande;
 
     @Column(name = "montant")
     private Integer montant;
 
-    @Column(name = "numeroCarte")
+    @Column(name = "numero_carte")
     private Long numeroCarte;
 
     public Paiement() {
