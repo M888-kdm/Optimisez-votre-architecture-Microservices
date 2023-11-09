@@ -7,10 +7,10 @@ export const resolvers = {
           return dataSources.commandeAPI.getObjectById(id);
       },
       produits: async(_, { id }, { dataSources }) => {
-          return dataSources.produitsAPI.getProduits()
+          return dataSources.produitsAPI.getObjects()
       },
       produitById: async(_, { id }, { dataSources }) =>{
-          return dataSources.produitsAPI.getProduitById(id)
+          return dataSources.produitsAPI.getObjectById(id)
       },
     },
     Mutation: {
@@ -24,7 +24,7 @@ export const resolvers = {
     Commande: {
       product: async(parent, args, { dataSources }) => {
           const productId = parent.productId;
-          return dataSources.produitAPI.getObjectById(productId);
+          return dataSources.produitsAPI.getObjectById(productId);
       }
     },
     Paiement: {
