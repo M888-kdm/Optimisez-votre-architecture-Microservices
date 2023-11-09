@@ -18,12 +18,12 @@ export const resolvers = {
         return dataSources.commandesAPI.create(commande);
       }
     },
-    Commande: {
-        produit: async(parent, args, { dataSources }) => {
-            const productId = parent.productId;
-            return dataSources.produitAPI.getObjectById(productId);
-        }
-    },
+    // Commande: {
+    //     produit: async(parent, args, { dataSources }) => {
+    //         const productId = parent.productId;
+    //         return dataSources.produitAPI.getObjectById(productId);
+    //     }
+    // },
     Paiement: {
         commande: async(parent, args, { dataSources }) => {
           const commandeId = parent.commandeId;

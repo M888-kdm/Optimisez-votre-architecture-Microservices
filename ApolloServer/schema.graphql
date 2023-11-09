@@ -28,7 +28,7 @@ input CommandeInput {
 
 input PaiementInput {
   id: ID,
-  commandeId: Int,
+  idCommande: Int,
   montant: Int,
   numeroCarte: Int
 }
