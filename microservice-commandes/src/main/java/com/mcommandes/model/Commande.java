@@ -1,25 +1,28 @@
 package com.mcommandes.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 @Entity
+@Table(name = "commande")
 public class Commande {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "productId")
     private Integer productId;
 
+    @Column(name = "dateCommande")
     private Date dateCommande;
 
+    @Column(name = "quantite")
     private Integer quantite;
 
+    @Column(name = "commandePayee")
     private Boolean commandePayee;
 
     public Commande() {
