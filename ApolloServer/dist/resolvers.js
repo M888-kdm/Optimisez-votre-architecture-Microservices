@@ -6,13 +6,16 @@ export const resolvers = {
         getCommande: async (_, { id }, { dataSources }) => {
             return dataSources.commandeAPI.getObjectById(id);
         },
+        greeting: async (_, { id }, { dataSources }) => {
+            return 'Hello Fama';
+        },
     },
     Mutation: {
         createPaiement: async (_, { paiement }, { dataSources }) => {
             return dataSources.paiementAPI.create(paiement);
         },
         createCommande: async (_, { commande }, { dataSources }) => {
-            return dataSources.commandeAPI.create(commande);
+            return dataSources.commandesAPI.create(commande);
         }
     },
     Commande: {

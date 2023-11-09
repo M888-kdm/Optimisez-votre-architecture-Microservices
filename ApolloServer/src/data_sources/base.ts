@@ -2,19 +2,24 @@ import { RESTDataSource } from '@apollo/datasource-rest';
 
 export class BaseDataSource<Entity extends Object> extends RESTDataSource {
 
-    protected endpoint: string = "";
-    override baseURL = `${process.env.URL}/${this.endpoint}/`;
+    private url = "http://10.100.238.11";
 
-    async getObjects(): Promise<any> {
+    constructor(port: string){
+        super();
+        this.baseURL = `${this.url}:${port}/`;
+    }
+
+    protected async getObjects(): Promise<Entity> {
         return this.get('');
     }
 
-    async getObjectById(id: number): Promise<any> {
+    protected async getObjectById(id: number): Promise<Entity> {
         return this.get(`${id}`);
     }
 
-    async create(entity: Entity): Promise<any> {
-        return this.post('', { body: entity });
+    protected async create(entity: Entity): Promise<Entity> {
+        const a = this.post('', { body: entity });
+        return a;
     }
 
 }

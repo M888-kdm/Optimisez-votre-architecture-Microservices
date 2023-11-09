@@ -15,7 +15,7 @@ export const resolvers = {
         return dataSources.paiementAPI.create(paiement);
       },
       createCommande: async(_, { commande }, { dataSources }) => {
-        return dataSources.commandeAPI.create(commande);
+        return dataSources.commandesAPI.create(commande);
       }
     },
     Commande: {
