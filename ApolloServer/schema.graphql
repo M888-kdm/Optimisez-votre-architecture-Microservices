@@ -43,7 +43,7 @@ input ProduitInput {
 
 type Commande{
   id: ID,
-  produitId: Int,
+  productId: Int,
   dateCommande: String,
   quantite: Int,
   commandePayee: Boolean

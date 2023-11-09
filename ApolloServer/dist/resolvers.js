@@ -19,7 +19,7 @@ export const resolvers = {
         }
     },
     // Commande: {
-    //     produit: async(parent, args, { dataSources }) => {
+    //     product: async(parent, args, { dataSources }) => {
     //         const productId = parent.productId;
     //         return dataSources.produitAPI.getObjectById(productId);
     //     }
