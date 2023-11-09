@@ -18,7 +18,6 @@ export class BaseDataSource<Entity extends Object> extends RESTDataSource {
     }
 
     protected async create(entity: Entity): Promise<Entity> {
-        console.log(entity);
         const a = this.post('', { body: entity });
         return a;
     }
