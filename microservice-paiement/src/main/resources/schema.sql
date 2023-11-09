@@ -1,7 +1,7 @@
 CREATE TABLE paiement
 (
     id          INT PRIMARY KEY,
-    idCommande  INT NOT NULL,
+    id_commande  INT NOT NULL,
     montant     INT NOT NULL ,
-    numeroCarte INT NOT NULL
+    numero_carte INT NOT NULL
 );

@@ -1,8 +1,8 @@
 CREATE TABLE commande
 (
     id            INT PRIMARY KEY,
-    productId     INT NOT NULL,
-    commandePayee INT NOT NULL,
-    dateCommande  DATE NOT NULL,
+    product_Id     INT NOT NULL,
+    commande_payee INT NOT NULL,
+    date_commande  DATE NOT NULL,
     quantite      INT NOT NULL
 );
