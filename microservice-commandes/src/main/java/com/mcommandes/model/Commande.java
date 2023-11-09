@@ -13,16 +13,16 @@ public class Commande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "productId")
+    @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "dateCommande")
+    @Column(name = "date_commande")
     private Date dateCommande;
 
     @Column(name = "quantite")
     private Integer quantite;
 
-    @Column(name = "commandePayee")
+    @Column(name = "commande_payee")
     private Boolean commandePayee;
 
     public Commande() {
