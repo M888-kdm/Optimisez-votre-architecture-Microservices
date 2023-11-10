@@ -10,7 +10,7 @@ type Mutation {
   createPaiement(paiement: PaiementInput): Paiement
 }
 
-type Produit{
+type Produit @cacheControl(maxAge: 1200){
   id: ID,
   titre: String,
   description: String,
@@ -26,7 +26,7 @@ input ProduitInput {
   prix: Int
 }
 
-type Commande{
+type Commande @cacheControl(maxAge: 1200){
   id: ID,
   product: Produit,
   dateCommande: String,
@@ -49,9 +49,20 @@ input PaiementInput {
   numeroCarte: Int
 }
 
-type Paiement{
+type Paiement @cacheControl(maxAge: 1200){
   id: ID,
   commande: Commande,
   montant: Int,
   numeroCarte: Int
 }
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+directive @cacheControl(
+  maxAge: Int
+  scope: CacheControlScope
+  inheritMaxAge: Boolean
+) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
