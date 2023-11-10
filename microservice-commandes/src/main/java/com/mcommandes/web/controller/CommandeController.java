@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -17,6 +18,16 @@ public class CommandeController {
 
     @Autowired
     CommandesDao commandesDao;
+
+    @GetMapping(value = "/")
+    public List<Commande> listeDesCommandes()
+    {
+        List<Commande> commandes = commandesDao.findAll();
+
+        if(commandes.isEmpty()) throw new CommandeNotFoundException("Aucune commande n'a été faite !");
+
+        return commandes;
+    }
 
     @PostMapping (value = "/")
     public ResponseEntity<Commande> ajouterCommande(@RequestBody Commande commande){
