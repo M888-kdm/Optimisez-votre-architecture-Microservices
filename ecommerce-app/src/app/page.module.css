@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh !important;
+}
+
+.carousel {
+  flex: 1;
+  background-color: red;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.description {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+}
