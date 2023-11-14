@@ -1,3 +1,4 @@
+import { GraphQLError } from "graphql";
 export const resolvers = {
     Query: {
         listeCommandes: async (_, __, { dataSources }) => {
@@ -14,11 +15,33 @@ export const resolvers = {
         },
     },
     Mutation: {
-        createPaiement: async (_, { paiement }, { dataSources }) => {
-            return dataSources.paiementAPI.create(paiement);
+        createPaiement: async (_, { paiement }, { validation, dataSources }) => {
+            if (validation) {
+                return dataSources.paiementAPI.create(paiement);
+            }
+            throw new GraphQLError('UNAUTHORIZED', {
+                extensions: {
+                    code: 'UNAUTHORIZED',
+                    http: { status: 401 },
+                },
+            });
         },
-        createCommande: async (_, { commande }, { dataSources }) => {
-            return dataSources.commandesAPI.create(commande);
+        createCommande: async (_, { commande }, { validation, dataSources }) => {
+            if (validation) {
+                return dataSources.commandesAPI.create(commande);
+            }
+            throw new GraphQLError('UNAUTHORIZED', {
+                extensions: {
+                    code: 'UNAUTHORIZED',
+                    http: { status: 401 },
+                },
+            });
+        },
+        login: async (_, { email, password }, { dataSources }) => {
+            return dataSources.authAPI.login(email, password);
+        },
+        register: async (_, { firstName, lastName, email, password }, { dataSources }) => {
+            return dataSources.authAPI.register(firstName, lastName, email, password);
         }
     },
     Commande: {
