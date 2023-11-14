@@ -22,8 +22,27 @@ const server = new ApolloServer<ContextValue>({
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4001 },
-  context: async() => {
+  context: async({req,res}) => {
+    // 1) Get the user token from the headers.
+    const token = req.headers.authorization || '';
+    // Get the user token after "Bearer "
+    const userId = token.split(' ')[1]; // e.g. "user-1"
+    // // Initialize the userInfo object where the user's id and role will be stored
+    // //    with a successful authentication
+    // let userInfo = {};
 
+    // if (userId) {
+    //   // 2) Authenticate the user using the accounts API endpoint
+    //   const { data } = await axios.get(`http://localhost:4011/login/${userId}`).catch((error) => {
+    //     throw Error();
+    //   });
+
+    //   // 3) After a successful login, store the user's id and role
+    //   //    in the userInfo object,
+    //   //    which will be passed to `context` below for the resolvers to use
+    //   userInfo = { userId: data.id, userRole: data.role };
+    // }
+    // // Add the user to the context
     return {
       dataSources: {
         commandesAPI: new CommandeDataSource(),

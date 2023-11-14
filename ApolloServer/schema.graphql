@@ -7,7 +7,8 @@ type Query {
 
 type Mutation {
   createCommande(commande: CommandeInput): Commande,
-  createPaiement(paiement: PaiementInput): Paiement
+  createPaiement(paiement: PaiementInput): Paiement,
+  login(email:String,password: String):String
 }
 
 type Produit @cacheControl(maxAge: 1200){
