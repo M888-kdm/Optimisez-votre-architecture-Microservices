@@ -7,7 +7,9 @@ type Query {
 
 type Mutation {
   createCommande(commande: CommandeInput): Commande,
-  createPaiement(paiement: PaiementInput): Paiement
+  createPaiement(paiement: PaiementInput): Paiement,
+  login(email:String,password: String):User,
+  register(firstName:String,lastName:String,email:String,password: String):User,
 }
 
 type Produit @cacheControl(maxAge: 1200){
@@ -66,3 +68,12 @@ directive @cacheControl(
   scope: CacheControlScope
   inheritMaxAge: Boolean
 ) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
+
+
+type User{
+  id: Int,
+  firstName:String
+  lastName:String
+  email:String
+  accessToken:String
+}

@@ -20,3 +20,12 @@ export class Paiement {
     montant: number;
     numeroCarte: number;
 }
+
+export class User{
+    id: number;
+    firstName:string;
+    lastName:string;
+    email:string;
+    accessToken:string;
+}
+
