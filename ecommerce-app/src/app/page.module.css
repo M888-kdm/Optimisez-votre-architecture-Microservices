@@ -1,12 +1,11 @@
 .main {
   display: flex;
   flex-direction: column;
-  height: 100vh !important;
+  height: 90vh;
 }
 
 .carousel {
   flex: 1;
-  background-color: red;
 }
 
 .img {

@@ -1,8 +1,17 @@
-
 html,
 body {
 }
 
+.navbar {
+  height: 10vh;
+}
+
 .nav-link {
   color: black !important;
+}
+
+.modal-img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
 }
