@@ -113,8 +113,8 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: root
         - name: MYSQL_DATABASE
-          value: AuthDB
+          value: Database
         - name: MYSQL_PASSWORD
-          value: root
+          value: password
         ports:
-        - containerPort: 9600
+        - containerPort: 3306
