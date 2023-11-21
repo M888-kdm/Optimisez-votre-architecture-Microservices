@@ -14,10 +14,17 @@ type Mutation {
 
 type Produit @cacheControl(maxAge: 1200){
   id: ID,
-  titre: String,
-  description: String,
+  name: String,
+  category: String,
+  price: String,
+  model: String,
+  about: String,
+  productSpecification: String,
+  technicalDetails: String,
+  weight: String,
   image: String,
-  prix: Int
+  url: String,
+  isAmazonSeller: String
 }
 
 input ProduitInput {
@@ -58,6 +65,14 @@ type Paiement @cacheControl(maxAge: 1200){
   numeroCarte: Int
 }
 
+type User{
+  id: Int,
+  firstName:String
+  lastName:String
+  email:String
+  accessToken:String
+}
+
 enum CacheControlScope {
   PUBLIC
   PRIVATE
@@ -68,12 +83,3 @@ directive @cacheControl(
   scope: CacheControlScope
   inheritMaxAge: Boolean
 ) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
-
-
-type User{
-  id: Int,
-  firstName:String
-  lastName:String
-  email:String
-  accessToken:String
-}

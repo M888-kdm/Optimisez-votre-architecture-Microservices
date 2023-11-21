@@ -15,9 +15,9 @@
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "password": "password",
+    "database": "internship",
+    "host": "http://config-server-service.default.svc.cluster.local",
     "dialect": "mysql"
   }
 }
