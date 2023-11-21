@@ -1,5 +1,24 @@
-import { width } from "@fortawesome/free-solid-svg-icons/fa0";
+import { gql } from "@apollo/client";
 
+const query1 = gql
+            `mutation newCommande($commande: CommandeInput) {
+                createCommande(commande: $commande){
+                    id
+                    quantite
+                    product
+                    dateCommande
+                    commandePayee
+                }
+            }`;
+
+const query2 = gql
+            `mutation newPaiement($paiement: PaiementInput) {
+                createPaiement(paiement: $paiement){
+                    commande
+                    montant
+                }
+            }`;
+            
 const ProductDetails = ({ data }: any) => {
     return (
         <>

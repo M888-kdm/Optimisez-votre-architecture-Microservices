@@ -5,7 +5,12 @@ import { gql } from "@apollo/client";
 
 const query = gql
             `query ProductList {
-                listeCommandes
+                produits {
+                    titre
+                    description
+                    prix
+                    image
+                }
             }`;
 
 export default async function Products() {

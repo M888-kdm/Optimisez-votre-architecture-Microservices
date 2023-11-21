@@ -11,7 +11,7 @@ const ProductCard = ({ data }: any) => {
                         <h6 className="card-title">{data.titre}</h6>
                         <h5 className="fw-bold">{data.prix}$</h5>
                     </div>
-                    {/* <p className="card-text text-secondary">{data.description}</p> */}
+                    <p className="card-text text-secondary">{data.description}</p>
                     <ProductDetails data={data}/>
                 </div>
             </div>
