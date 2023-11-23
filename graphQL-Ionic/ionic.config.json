@@ -1,0 +1,7 @@
+{
+  "name": "graphQL-Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="middle">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Register</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form class="form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <ion-input 
+                type="text" 
+                name="firstName" 
+                placeholder="Enter your firstName" 
+                formControlName="firstName"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-input 
+                name="lastName" 
+                placeholder="Enter your lastName" 
+                formControlName="lastName"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-input 
+                name="email" 
+                placeholder="Enter your email" 
+                formControlName="email"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-input 
+                name="password" 
+                placeholder="Enter a password" 
+                formControlName="password"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12" class="ion-text-end">
+              <ion-button 
+                [disabled]="registerForm.invalid" type="submit">register</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>
+
