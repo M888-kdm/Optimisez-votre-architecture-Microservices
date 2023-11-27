@@ -33,28 +33,6 @@ services:
       context: .
       dockerfile:  ./microservice-produits/Dockerfile
 
-  microservice-commandes:
-    image: pamoussa/mcommandes:latest
-    container_name: microservice-commandes
-    depends_on:
-      - config-server
-    ports:
-      - "9002:9002"
-    build:
-      context: .
-      dockerfile:  ./microservice-commandes/Dockerfile
-
-  microservice-paiement:
-    image: pamoussa/mpaiement:latest
-    container_name: microservice-paiement
-    depends_on:
-      - config-server
-    ports:
-      - "9003:9003"
-    build:
-      context: .
-      dockerfile:  ./microservice-paiement/Dockerfile
-
   auth-server:
     image: pamoussa/auth-server:latest
     container_name: auth-server
