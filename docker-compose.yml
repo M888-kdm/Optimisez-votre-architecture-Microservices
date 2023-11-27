@@ -1,0 +1,78 @@
+version: '3'
+services:
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: internship
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+
+  config-server:
+    image: pamoussa/config-server:latest
+    container_name: config-server
+    ports:
+      - "9101:9101"
+    build:
+      context: .
+      dockerfile:  ./config-server/Dockerfile
+
+  microservice-produits:
+    image: pamoussa/mproduits:latest
+    depends_on:
+      - mysql
+      - config-server
+    container_name: microservice-produits
+    ports:
+      - "9001:9001"
+    build:
+      context: .
+      dockerfile:  ./microservice-produits/Dockerfile
+
+  microservice-commandes:
+    image: pamoussa/mcommandes:latest
+    container_name: microservice-commandes
+    depends_on:
+      - config-server
+    ports:
+      - "9002:9002"
+    build:
+      context: .
+      dockerfile:  ./microservice-commandes/Dockerfile
+
+  microservice-paiement:
+    image: pamoussa/mpaiement:latest
+    container_name: microservice-paiement
+    depends_on:
+      - config-server
+    ports:
+      - "9003:9003"
+    build:
+      context: .
+      dockerfile:  ./microservice-paiement/Dockerfile
+
+  auth-server:
+    image: pamoussa/auth-server:latest
+    container_name: auth-server
+    depends_on:
+      - mysql
+    ports:
+      - "3000:3000"
+    build:
+      context: .
+      dockerfile: ./auth-server/Dockerfile
+
+  apollo-server:
+    image: pamoussa/apollo-server:latest
+    container_name: apollo-server
+    depends_on:
+      - auth-server
+    ports:
+      - "4000:4000"
+    build:
+      context: .
+      dockerfile: ./apollo-server/Dockerfile

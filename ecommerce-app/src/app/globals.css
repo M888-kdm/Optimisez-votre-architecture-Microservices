@@ -11,7 +11,13 @@ body {
 }
 
 .modal-img {
-  height: 100% !important;
-  width: 100% !important;
   object-fit: cover;
+}
+
+.card-img-top {
+  object-fit: cover;
+}
+
+.product-details-wrapper {
+  height: 90vh !important;
 }
