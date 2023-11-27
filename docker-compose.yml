@@ -42,7 +42,7 @@ services:
       - "3000:3000"
     build:
       context: .
-      dockerfile: ./auth-server/Dockerfile
+      dockerfile: ./AuthServer/Dockerfile
 
   apollo-server:
     image: pamoussa/apollo-server:latest
