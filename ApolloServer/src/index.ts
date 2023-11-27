@@ -24,28 +24,27 @@ const server = new ApolloServer<ContextValue>({
   });
 
 const { url } = await startStandaloneServer(server, {
-  listen: { port: 4001 },
+  listen: { port: 4000 },
   context: async({req,res}) => {
-    let validation = false
-    // Get the user token from the headers.
-    const token = req.headers.authorization || '';
-    //  If there is token
-    if (token){
-      try {
-        const { data } = await axios.post('http://localhost:3000/tokenVerify', {
-          accessToken: token,
-        });
-        const { message, isValid } = data;
-        validation = isValid
-    } catch (error) {
-        // Gérez les erreurs ici
-        console.error('Erreur lors de la vérification du token', error);
-        throw error;
-      }
-    }
+    // let validation = false
+    // // Get the user token from the headers.
+    // const token = req.headers.authorization || '';
+    // //  If there is token
+    // if (token){
+    //   try {
+    //     const { data } = await axios.post('http://localhost:3000/tokenVerify', {
+    //       accessToken: token,
+    //     });
+    //     const { message, isValid } = data;
+    //     validation = isValid
+    // } catch (error) {
+    //     // Gérez les erreurs ici
+    //     console.error('Erreur lors de la vérification du token', error);
+    //     throw error;
+    //   }
+    // }
    
     return {
-      validation,
       dataSources: {
         commandesAPI: new CommandeDataSource(),
         paiementAPI: new PaiementDataSource(),

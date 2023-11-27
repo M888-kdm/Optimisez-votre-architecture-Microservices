@@ -1,13 +1,11 @@
-// "use client";
-
 import { Inter } from 'next/font/google'
 import './globals.css'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from '@fortawesome/fontawesome-svg-core';
 import Navbar from './components/navbar';
+import { ApolloWrapper } from '@/lib/ApolloWrapper';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { ApolloWrapper } from '@/lib/apollo-provider';
 
 config.autoAddCss = false;
 
@@ -19,13 +17,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {/* <ApolloWrapper> */}
-          <Navbar/>
-          {children}
-        {/* </ApolloWrapper> */}
-      </body>
-    </html>
+      <html lang="en">
+          <body className={inter.className}>
+              <Navbar/>
+              <ApolloWrapper>{children}</ApolloWrapper>
+          </body>
+      </html>
   )
 }
