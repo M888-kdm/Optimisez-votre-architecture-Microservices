@@ -12,7 +12,7 @@ type Mutation {
   register(firstName:String,lastName:String,email:String,password: String):User,
 }
 
-type Produit {
+type Produit @cacheControl(maxAge: 1200){
   id: ID,
   name: String,
   category: String,
