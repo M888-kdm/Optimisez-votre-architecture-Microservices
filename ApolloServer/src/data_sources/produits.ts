@@ -3,9 +3,14 @@ import { BaseDataSource } from './base.js';
 
 export class ProduitsDataSource extends BaseDataSource<Object> {
 
+  // constructor(){
+  //     const port = 9001;
+  //     // super(`${port}`);
+  // }
+
   constructor(){
-      const port = 30001;
-      super(`${port}`);
+    super();
+    this.baseURL = "http://microservice-produits:4000";
   }
 
 }

@@ -4,10 +4,10 @@ export class BaseDataSource<Entity extends Object> extends RESTDataSource {
 
     private url = "http://10.100.238.11";
 
-    constructor(port: string){
-        super();
-        this.baseURL = `${this.url}:${port}/`;
-    }
+    // constructor(){
+    //     super();
+    //     this.baseURL = `${this.url}:${port}/`;
+    // }
 
     protected async getObjects(): Promise<Entity> {
         return this.get('');
