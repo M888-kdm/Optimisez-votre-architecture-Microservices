@@ -10,7 +10,7 @@ export class BaseDataSource<Entity extends Object> extends RESTDataSource {
     // }
 
     protected async getObjects(): Promise<Entity> {
-        return this.get('');
+        return this.get('', { cacheOptions: { ttl: 0 }});
     }
 
     protected async getObjectById(id: number): Promise<Entity> {

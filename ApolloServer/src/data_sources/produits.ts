@@ -10,7 +10,7 @@ export class ProduitsDataSource extends BaseDataSource<Object> {
 
   constructor(){
     super();
-    this.baseURL = "http://microservice-produits:4000";
+    this.baseURL = "http://microservice-produits:9001";
   }
 
 }
