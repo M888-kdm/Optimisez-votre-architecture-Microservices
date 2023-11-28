@@ -1,0 +1,82 @@
+<ion-card>
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <ion-card-header>
+      <ion-card-title>{{ produit.titre }} <strong class="prix">{{produit.prix}}$</strong></ion-card-title>
+      <ion-card-subtitle>{{ produit.description }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="setOpen(true)">More</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button class="ion-text-center" (click)="passerCommande()">Commander</ion-button>
+        </ion-col>
+      </ion-row>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Details</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>{{ produit.titre }} <strong class="prix">{{produit.prix}}$</strong> </p>
+        <p><img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" /></p>
+        <p>{{ produit.description }}</p>
+        <p>{{ produit.description }}</p>
+        <p>{{ produit.description }}</p>
+        <p>{{ produit.description }}</p>
+        <ion-button class="ion-text-end" (click)="passerCommande()">Commander</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+    </ion-card-content>
+</ion-card>
+
+
+
+
+ <!-- <ion-card>
+  <img alt="Silhouette of mountains" [src]="produit.image" />
+  <ion-card-header>
+    <ion-card-title>{{ produit.name }} <strong class="prix">{{produit.price}}$</strong></ion-card-title>
+    <ion-card-subtitle>{{ produit.product_specification }}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="setOpen(true)">More</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button class="ion-text-end" (click)="passerCommande()">Commander</ion-button>
+      </ion-col>
+    </ion-row>
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Details</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <p>{{ produit.name }} <strong class="prix">{{produit.price}}$</strong> </p>
+      <p><img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" /></p>
+      <p>{{ produit.category }}</p>
+      <p>{{ produit.product_specification}}</p>
+      <p>{{ produit.technical_details }}</p>
+      <p>{{ produit.model }}</p>
+      <ion-button class="ion-text-end" (click)="passerCommande()">Commander</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+  </ion-card-content>
+</ion-card> -->
+
+
