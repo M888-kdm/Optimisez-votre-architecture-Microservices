@@ -13,7 +13,10 @@ export default function Navbar(){
                 </div>
             </div>
             
-            <Link className="navbar-brand text-uppercase fw-bold col-1 mx-auto text-center text-white" href="/">E-commerce</Link>
+            <Link className="navbar-brand text-uppercase fw-bold col-1 mx-auto text-center text-white" href="/">
+                <Image src="/images/nike.png" className='me-2' alt='Moussa' width={50} height={50}/>
+                Shopify
+            </Link>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
