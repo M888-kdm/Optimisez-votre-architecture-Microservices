@@ -42,10 +42,9 @@ public class ProductController {
 
         if(products.isEmpty()) throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
 
-        // List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
+        List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
 
-        // return listeLimitee;
-        return products;
+        return listeLimitee;
     }
 
     //Récuperer un produit par son id
