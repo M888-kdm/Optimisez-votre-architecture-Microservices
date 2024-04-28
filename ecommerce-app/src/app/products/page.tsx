@@ -10,8 +10,8 @@ const query = gql
             produits {
                 id
                 name
-                price
                 image
+                price
             }
         }`;
 

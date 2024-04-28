@@ -8,6 +8,7 @@ import { ProduitsDataSource } from './data_sources/produits.js';
 import { AuthAPI } from './data_sources/auth.js';
 import axios from 'axios';
 import { GraphQLError } from 'graphql';
+import { GraphQLResponse, GraphQLRequestContext } from '@apollo/server';
 
 interface ContextValue {
   dataSources: {

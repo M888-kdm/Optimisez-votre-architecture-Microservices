@@ -3,13 +3,6 @@ import { RequestOptions } from '@apollo/datasource-rest';
 
 export class BaseDataSource<Entity extends Object> extends RESTDataSource {
 
-    private url = "http://10.100.238.11";
-
-    protected override requestDeduplicationPolicyFor(url: URL, request: RequestOptions) {
-        const cacheKey = this.cacheKeyFor(url, request);
-        return { policy: 'do-not-deduplicate' } as const;
-    }
-
     protected async getObjects(): Promise<Entity> {
         return this.get('', { cacheOptions: { ttl: 0 }});
     }
